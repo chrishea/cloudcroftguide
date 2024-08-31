@@ -1,0 +1,130 @@
+<!DOCTYPE html> <html> <head> <title>Cloudcroft Guide</title> <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com?ckcachebust=13F26B71D6D555412965D7AE3939BDAC" crossorigin> <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com?ckcachebust=ED6C597C1B825E1B7D21FB94814777D4" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=IBM+Plex+Sans+Condensed:wght@100;200;300;400;500;600;700&family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://use.typekit.net/wmj6wdn.css">
+  <style>
+
+
+   *:where(:not(iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+	all: unset;
+	display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+	list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+	max-width: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+	border-collapse: collapse;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+	white-space: revert;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]){
+	display:none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly. */
+:where([contenteditable]){
+	-moz-user-modify: read-write;
+	-webkit-user-modify: read-write;
+	overflow-wrap: break-word;
+	-webkit-line-break: after-white-space;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+	-webkit-user-drag: element;
+}
+
+
+body {
+		display: grid;
+		place-content: center;
+		height: 100vh;
+	
+	  }
+
+	  .content-container {
+		padding:3vh 15vw;
+		text-align:left;
+		margin:20px auto;
+		border-radius:11px!important;
+	  }
+
+	  div {
+
+		background-color:white;
+		color:darkgreen;
+		font-size:3.3vw!important;
+		font-family: 'ibm plex sans'; serif;
+		font-weight: 300!important;
+		text-align: center;
+		letter-spacing:normal!important;
+
+	  }
+
+	  .stroke-text{
+		-webkit-text-stroke:1.5px black!important;
+		-webkit-text-fill-color:white;
+	  }
+
+	
+		.typewriter {
+
+					  overflow: hidden; /* Ensures the content is not revealed until the animation */
+					  margin: 5vh auto 20vh auto !important;
+					  letter-spacing: 0; /* Adjust as needed */
+					  animation: typing 1.95s steps(60, end);
+					}
+
+					/* The typing effect */
+					@keyframes typing {
+					  from {
+						width: 0;
+					  }
+					  to {
+						width: 100%;
+					  }
+					}
+
+					/* The typewriter cursor effect */
+					@keyframes blink-caret {
+					  from,
+					  to {
+						border-color: transparent;
+					  }
+					  50% {
+						border-color: orange;
+					  }
+					}
+
+
+	</style> </head> <body> <div class="content-container typewriter">
+
+	  <div>Cloudcroft<span style="color:#999999!important">Guide.com</span>
+		</div> </div>
+		 <!-- scripts -->
+		 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		 <script src="custom.js"></script>
+
+	   </body> </html>
