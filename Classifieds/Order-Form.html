@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+    <style>
+        body {
+            padding: 25vw;
+            background-color: #efeee5;
+            font-family: 'Franklin Gothic Medium', Arial, sans-serif;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+        label {
+            margin-top: 1em;
+        }
+        input, textarea {
+            height: 3em; /* Adjust this value as needed */
+        }
+        #message {
+            height: auto; /* Allow the textarea to grow as needed */
+            min-height: 6em; /* Set a minimum height */
+        }
+    </style>
+</head>
+<body>
+    <form method="POST">
+        <label for="business-name">Business Name:</label>
+        <input type="text" id="business-name" name="business-name">
+        
+        <label for="message">Message:</label>
+        <textarea id="message" name="message"></textarea>
+        
+        <label for="web">Website:</label>
+        <input type="url" id="web" name="web">
+        
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone">
+        
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="order">Order Details:</label>
+        <textarea id="order" name="order" required></textarea>
+        
+        <label for="amount">Amount ($):</label>
+        <input type="number" id="amount" name="amount" step="0.01" required>
+        
+        <button style="font-size:1em;
+                font-weight:700;
+                padding:2vh!important;
+                max-width:50%!important" 
+            type="submit">Submit Order</button>
+    </form>
+</body>
+<script>
+    document.querySelector('form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const formData = new FormData(event.target);
+        const data = {};
+        formData.forEach((value, key) => {
+            data[key] = value;
+        });
+
+        const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'order.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    });
+</script>
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            fetch('/save-order', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    alert('Order saved successfully!');
+                } else {
+                    alert('Failed to save order.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while saving the order.');
+            });
+        });
+    </script>
+    
+</script>
+</html>
