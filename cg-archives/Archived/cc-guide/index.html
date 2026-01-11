@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloudcroft Guide | 9,000 Feet Above Stress Level</title>
+    <style>
+        :root {
+            --evergreen: #2D4033;
+            --slate: #4A5568;
+            --sunset: #E67E22;
+            --cream: #FDFBF7;
+            --bark: #3E2723;
+        }
+
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--cream); color: var(--bark); line-height: 1.6; }
+        header { background: var(--evergreen); color: white; padding: 1.5rem; text-align: center; border-bottom: 5px solid var(--sunset); }
+        nav { background: var(--slate); display: flex; justify-content: center; padding: 0.7rem; sticky; top: 0; }
+        nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
+        
+        .hero { 
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover; background-position: center; height: 50vh; display: flex; flex-direction: column; 
+            justify-content: center; align-items: center; color: white; text-align: center;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .card { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid var(--evergreen); }
+        h2 { color: var(--evergreen); border-bottom: 2px solid var(--sunset); padding-bottom: 10px; }
+        .btn { background: var(--sunset); color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 10px; font-weight: bold; }
+        footer { background: var(--bark); color: white; text-align: center; padding: 3rem; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>CloudcroftGuide.com</h1>
+</header>
+
+<nav>
+    <a href="#explore">Explore</a>
+    <a href="#eat">Eat & Drink</a>
+    <a href="#winter">Winter Guide</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<section class="hero">
+    <h1 style="font-size: 3.5rem; margin: 0;">Find Your Peak</h1>
+    <p style="font-size: 1.5rem;">The Ultimate Visitor Guide to Cloudcroft, New Mexico</p>
+</section>
+
+<div class="container">
+    <section id="explore">
+        <h2>Essential Cloudcroft</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>The Mexican Canyon Trestle</h3>
+                <p>A towering monument to the "Cloud-Climbing Railroad." Best viewed from the Trestle Recreation Area trails.</p>
+            </div>
+            <div class="card">
+                <h3>The Lodge at Cloudcroft</h3>
+                <p>Visit the historic 1899 hotel, home to the famous Rebecca's restaurant and a resident ghost.</p>
+            </div>
+            <div class="card">
+                <h3>High-Altitude Hiking</h3>
+                <p>Explore the Osha Trail or the Rim Trail for breathtaking views of White Sands National Park.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="eat" style="margin-top: 50px;">
+        <h2>Dining & Legend</h2>
+        <div class="card">
+            <h3>Mad Jack’s Mountaintop BBQ</h3>
+            <p>Authentic Lockhart-style BBQ. Tip: The line starts at 9:00 AM, and they sell out fast!</p>
+            <a href="https://www.madjacksbbq.com" class="btn">View Menu</a>
+        </div>
+    </section>
+
+    <section id="winter" style="margin-top: 50px;">
+        <h2>Winter Wonderland</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Ski Cloudcroft</h3>
+                <p>Southernmost skiing in NM. Perfect for families and beginners.</p>
+            </div>
+            <div class="card">
+                <h3>Tubing & Skating</h3>
+                <p>Experience the James Sewell Ice Rink or hit the tubing hills at Ski Cloudcroft.</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2025 CloudcroftGuide.com | 9,000 Feet Above Stress Level</p>
+</footer>
+
+</body>
+</html>index

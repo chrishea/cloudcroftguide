@@ -1,170 +1,519 @@
-<!DOCTYPE html> 
-<head> 
-	<title>Cloudcroft Guide</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover Cloudcroft and the Sacramento Mountains - hiking, skiing, dining, and mountain adventures at 9,000 feet in southeastern New Mexico.">
+    <meta name="keywords" content="Cloudcroft, Sacramento Mountains, New Mexico tourism, mountain getaway, hiking, skiing">
+    <title>Cloudcroft Guide | Sacramento Mountains, New Mexico</title>
 
-  <style>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Serif:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
 
-   *:where(:not(iframe, canvas, img, svg, video):not(svg *, symbol *)) {
-	all: unset;
-	display: revert;
-}
+    <!-- Theme Switcher Script -->
+    <script>
+        // Load theme based on localStorage or URL parameter
+        (function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const themeParam = urlParams.get('theme');
+            const savedTheme = localStorage.getItem('cloudcroftTheme');
+            const theme = themeParam || savedTheme || 'skyBlue';
 
-/* Preferred box-sizing value */
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
-}
+            if (theme === 'darkGreen') {
+                const link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.setAttribute('data-theme', 'darkGreen');
+                link.href = 'css/Color-MM-DarkGreen.css';
+                document.head.appendChild(link);
+            } else if (theme === 'skyBlue') {
+                const link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.setAttribute('data-theme', 'skyBlue');
+                link.href = 'css/Color-MM-SkyBlue.css';
+                document.head.appendChild(link);
+            }
 
-/* Remove list styles (bullets/numbers) */
-ol, ul, menu {
-	list-style: none;
-}
+            // Save theme to localStorage if it came from URL
+            if (themeParam) {
+                localStorage.setItem('cloudcroftTheme', themeParam);
+            }
+        })();
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">Cloudcroft<span class="accent">Guide</span></a>
 
-/* For images to not be able to exceed their container */
-img {
-	max-width: 100%;
-}
+            <!-- Mobile Menu Toggle -->
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
 
-/* removes spacing between cells in tables */
-table {
-	border-collapse: collapse;
-}
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#things-to-do" class="nav-link">Things to Do</a></li>
+                <li><a href="#stay" class="nav-link">Where to Stay</a></li>
+                <li><a href="#dining" class="nav-link">Dining</a></li>
+                <li><a href="#local-directory" class="nav-link">Local Directory</a></li>
+                <li><a href="#events" class="nav-link">Events</a></li>
+                <li><a href="#visitor-info" class="nav-link">Visitor Info</a></li>
+                <li><a href="#contact" class="nav-link nav-cta">Plan Your Visit</a></li>
+            </ul>
+        </div>
+    </nav>
 
-/* revert the 'white-space' property for textarea elements on Safari */
-textarea {
-	white-space: revert;
-}
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-image-container">
+            <img src="art/hero-cloudcroft.jpg" alt="Sacramento Mountains panoramic view" class="hero-image">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">Escape to the Sacramento Mountains</h1>
+            <p class="hero-subtitle">Cool pines, mountain charm, and endless adventures at 9,000 feet</p>
+            <a href="#things-to-do" class="hero-cta">Discover Cloudcroft</a>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
 
-/* fix the feature of 'hidden' attribute.
-   display:revert; revert to element instead of attribute */
-:where([hidden]){
-	display:none;
-}
+    <!-- Things to Do Section -->
+    <section id="things-to-do" class="section">
+        <div class="section-hero">
+            <img src="art/hero-things-to-do.jpg" alt="Hiking trails and outdoor activities in Cloudcroft" class="section-hero-image">
+            <div class="section-hero-overlay">
+                <h2 class="section-hero-title">Things to Do</h2>
+            </div>
+        </div>
+        <div class="container">
+            <p class="section-intro">From alpine adventures to starlit nights, discover what makes Cloudcroft unforgettable</p>
 
-/* revert for bug in Chromium browsers
-   - fix for the content editable attribute will work properly. */
-:where([contenteditable]){
-	-moz-user-modify: read-write;
-	-webkit-user-modify: read-write;
-	overflow-wrap: break-word;
-	-webkit-line-break: after-white-space;
-}
+            <div class="activities-grid">
+                <!-- Hiking -->
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <img src="art/activity-hiking.jpg" alt="Hiking trails in the Sacramento Mountains">
+                        <div class="activity-overlay">
+                            <span class="activity-icon">🥾</span>
+                        </div>
+                    </div>
+                    <div class="activity-content">
+                        <h3>Hiking & Trails</h3>
+                        <p>Explore miles of pristine trails through ponderosa pines and aspen groves. From easy nature walks to challenging mountain ascents, there's a path for every adventurer.</p>
+                    </div>
+                </div>
 
-/* apply back the draggable feature - exist only in Chromium and Safari */
-:where([draggable="true"]) {
-	-webkit-user-drag: element;
-}
+                <!-- Skiing -->
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <img src="art/activity-skiing.jpg" alt="Skiing at Cloudcroft ski area">
+                        <div class="activity-overlay">
+                            <span class="activity-icon">⛷️</span>
+                        </div>
+                    </div>
+                    <div class="activity-content">
+                        <h3>Skiing & Winter Sports</h3>
+                        <p>Hit the slopes at southernmost ski resort in the U.S. Perfect for families and beginners, with stunning views of White Sands below.</p>
+                    </div>
+                </div>
 
+                <!-- Scenic Drives -->
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <img src="art/activity-scenic-drives.jpg" alt="Scenic mountain roads and byways">
+                        <div class="activity-overlay">
+                            <span class="activity-icon">🚗</span>
+                        </div>
+                    </div>
+                    <div class="activity-content">
+                        <h3>Scenic Drives</h3>
+                        <p>Wind through spectacular mountain passes and discover breathtaking overlooks. The Sunspot Scenic Byway offers unforgettable vistas.</p>
+                    </div>
+                </div>
 
-body {
-		display: grid;
-		place-content: center;
-		height: 100vh;
-		font-size:2rem;
-	
-	  }
+                <!-- Wildlife Viewing -->
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <img src="art/activity-wildlife.jpg" alt="Wildlife viewing in mountain habitats">
+                        <div class="activity-overlay">
+                            <span class="activity-icon">🦌</span>
+                        </div>
+                    </div>
+                    <div class="activity-content">
+                        <h3>Wildlife Viewing</h3>
+                        <p>Spot elk, deer, wild turkeys, and countless bird species in their natural habitat. Bring binoculars for the best experience.</p>
+                    </div>
+                </div>
 
-	  .content-container {
-		padding:3vh 15vw;
-		text-align:left;
-		margin:20px auto;
-		border-radius:11px!important;
-	  }
+                <!-- Stargazing -->
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <img src="art/activity-stargazing.jpg" alt="Night sky and stars over mountains">
+                        <div class="activity-overlay">
+                            <span class="activity-icon">⭐</span>
+                        </div>
+                    </div>
+                    <div class="activity-content">
+                        <h3>Stargazing</h3>
+                        <p>Experience some of the darkest skies in New Mexico. The high altitude and clear air create perfect conditions for astronomy.</p>
+                    </div>
+                </div>
 
-	  div {
+                <!-- Historic Sites -->
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <img src="art/activity-historic.jpg" alt="Historic buildings and heritage sites">
+                        <div class="activity-overlay">
+                            <span class="activity-icon">🏛️</span>
+                        </div>
+                    </div>
+                    <div class="activity-content">
+                        <h3>Historic Sites</h3>
+                        <p>Explore Victorian-era architecture, railroad heritage, and the storied past of this mountain resort town established in 1899.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-		background-color:white;
-		color:darkgreen;
-		font-size:3.3vw!important;
-		font-family: serif;
-		font-weight: 300!important;
-		text-align: center;
-		letter-spacing:normal!important;
+    <!-- Where to Stay Section -->
+    <section id="stay" class="section section-alt">
+        <div class="section-hero">
+            <img src="art/hero-where-to-stay.jpg" alt="Lodging and accommodations in Cloudcroft" class="section-hero-image">
+            <div class="section-hero-overlay">
+                <h2 class="section-hero-title">Where to Stay</h2>
+            </div>
+        </div>
+        <div class="container">
+            <p class="section-intro">Find your perfect mountain retreat</p>
 
-	  }
+            <div class="stay-grid">
+                <!-- Historic Lodges -->
+                <div class="stay-card">
+                    <div class="stay-image">
+                        <img src="art/stay-lodge.jpg" alt="Historic lodge accommodation">
+                    </div>
+                    <div class="stay-content">
+                        <h3>Historic Lodges</h3>
+                        <p>Experience Victorian elegance at The Lodge Resort, built in 1899. Enjoy fine dining, golf, and timeless mountain hospitality.</p>
+                    </div>
+                </div>
 
-	  .stroke-text{
-		-webkit-text-stroke:1.5px black!important;
-		-webkit-text-fill-color:white;
-	  }
+                <!-- Cabins & Rentals -->
+                <div class="stay-card">
+                    <div class="stay-image">
+                        <img src="art/stay-cabins.jpg" alt="Mountain cabins and vacation rentals">
+                    </div>
+                    <div class="stay-content">
+                        <h3>Cabins & Rentals</h3>
+                        <p>Cozy cabins nestled in the pines offer privacy and comfort. Perfect for families or romantic getaways.</p>
+                    </div>
+                </div>
 
-	
-		.typewriter {
+                <!-- Camping -->
+                <div class="stay-card">
+                    <div class="stay-image">
+                        <img src="art/stay-camping.jpg" alt="Camping and RV sites">
+                    </div>
+                    <div class="stay-content">
+                        <h3>Camping & RV</h3>
+                        <p>Pitch your tent or park your RV among towering ponderosas. Multiple campgrounds offer mountain access and amenities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-					  overflow: hidden; /* Ensures the content is not revealed until the animation */
-					  margin: 5vh auto 20vh auto !important;
-					  letter-spacing: 0; /* Adjust as needed */
-					  animation: typing 3s steps(60, end);
-					}
+    <!-- Dining Section -->
+    <section id="dining" class="section">
+        <div class="section-hero">
+            <img src="art/hero-dining.jpg" alt="Cloudcroft restaurants and mountain dining" class="section-hero-image">
+            <div class="section-hero-overlay">
+                <h2 class="section-hero-title">Mountain Dining</h2>
+            </div>
+        </div>
+        <div class="container">
+            <p class="section-intro">From BBQ to bakeries, brewing to fine dining—Cloudcroft's food scene has something for everyone</p>
 
-					/* The typing effect */
-					@keyframes typing {
-					  from {
-						width: 0;
-					  }
-					  to {
-						width: 100%;
-					  }
-					}
+            <div class="dining-grid">
+                <!-- Featured Dining Stories -->
+                <div class="dining-featured">
+                    <h3>Featured Local Stories</h3>
+                    <div class="featured-story">
+                        <h4>Levain It Up Sourdough Bakery</h4>
+                        <p><em>High Rolls</em></p>
+                        <p>Garrett Barnett and Steven Jackson are transforming lives through artisan sourdough. Their starters—Queen (130+ years old), Doughlores, Matildough, and Doughlene—create croissants with 27 layers and breads requiring 8 days from start to finish. Open Friday-Sunday.</p>
+                    </div>
+                    <div class="featured-story">
+                        <h4><a href="https://cloudcroftbrewing.com" target="_blank" rel="noopener">Cloudcroft Brewing Company</a></h4>
+                        <p><em>1301 Burro Ave. | (575) 682-2337</em></p>
+                        <p>Brewmaster Elliot Bell transforms local ingredients into beers that tell the story of our high-altitude home. Wood-fired pizza, soup du jour, salads, and fantastic atmosphere with live music. Open 11:00 a.m.-9:00 p.m. (10:00 p.m. Friday-Saturday). Closed Tuesdays.</p>
+                    </div>
+                    <div class="featured-story">
+                        <h4>Mad Jack's Mountaintop BBQ</h4>
+                        <p><em>True Texas-Style BBQ</em></p>
+                        <p>James Jackson's acclaimed smokehouse draws long weekend lines. Now expanding to Johnson City, Texas, while keeping the Cloudcroft location thriving. One of New Mexico's most celebrated barbecue destinations.</p>
+                    </div>
+                </div>
 
-					/* The typewriter cursor effect */
-					@keyframes blink-caret {
-					  from,
-					  to {
-						border-color: transparent;
-					  }
-					  50% {
-						border-color: orange;
-					  }
-					}
+                <!-- Restaurant Directory -->
+                <div class="dining-directory">
+                    <h3>Restaurants & Cafes</h3>
 
+                    <div class="dining-listing">
+                        <div class="restaurant-image-block">
+                            <img src="art/restaurant-rebeccas.jpg" alt="Rebecca's at The Lodge">
+                        </div>
+                        <div class="restaurant-content">
+                            <h4>Rebecca's at The Lodge</h4>
+                            <p>Fine dining with panoramic views. Steaks, fresh trout, extensive wine selection. Elegant Victorian ambiance.</p>
+                        </div>
+                    </div>
 
+                    <div class="dining-listing">
+                        <div class="restaurant-image-block">
+                            <img src="art/restaurant-bigdaddys.jpg" alt="Big Daddy's Diner">
+                        </div>
+                        <div class="restaurant-content">
+                            <h4><a href="https://bigdaddysdinernm.com" target="_blank" rel="noopener">Big Daddy's Diner</a></h4>
+                            <p><em>1705 James Canyon Hwy | (575) 682-1224</em></p>
+                            <p>Comfort food and desserts. Try the fried chicken basket. Daily 7:00 a.m.-9:00 p.m.</p>
+                        </div>
+                    </div>
 
+                    <div class="dining-listing">
+                        <div class="restaurant-image-block">
+                            <img src="art/restaurant-brothernlaw.jpg" alt="Brother-N-Law BBQ">
+                        </div>
+                        <div class="restaurant-content">
+                            <h4>Brother-N-Law BBQ</h4>
+                            <p><em>209 James Canyon Hwy | (215) 858-0400</em></p>
+                            <p>Delicious smoked meats, baked potatoes, sandwiches, fried okra. Don't skip the sauce. 11:00 a.m.-6:00 p.m. daily except Thursday.</p>
+                        </div>
+                    </div>
 
-		.typewriter-slow {
+                    <div class="dining-listing">
+                        <div class="restaurant-image-block">
+                            <img src="art/restaurant-daves.jpg" alt="Dave's Cafe">
+                        </div>
+                        <div class="restaurant-content">
+                            <h4>Dave's Cafe</h4>
+                            <p><em>300 Burro Ave. | (575) 682-2127</em></p>
+                            <p>Classic burgers, fries, casual setting in the heart of Burro. 11:00 a.m.-8:00 p.m. Mon-Thu, til 9:00 p.m. Fri-Sun.</p>
+                        </div>
+                    </div>
 
-					  overflow: hidden; /* Ensures the content is not revealed until the animation */
-					  margin: 5vh auto 20vh auto !important;
-					  letter-spacing: 0; /* Adjust as needed */
-					  animation: typing 6s steps(60, end);
-					}
+                    <div class="dining-listing">
+                        <div class="restaurant-image-block">
+                            <img src="art/restaurant-dustyboots.jpg" alt="Dusty Boots Cafe & Taco Cantina">
+                        </div>
+                        <div class="restaurant-content">
+                            <h4><a href="https://dustyboots.com" target="_blank" rel="noopener">Dusty Boots Cafe & Taco Cantina</a></h4>
+                            <p><em>1317 James Canyon Hwy | (575) 601-2009</em></p>
+                            <p>Laid-back home cooking. Try the veggie-loaded Hiker's Boot omelette. 7:00 a.m.-7:00 p.m. daily.</p>
+                        </div>
+                    </div>
 
-					/* The typing effect */
-					@keyframes typing {
-					  from {
-						width: 0;
-					  }
-					  to {
-						width: 100%;
-					  }
-					}
+                    <div class="dining-listing">
+                        <div class="restaurant-image-block">
+                            <img src="art/restaurant-sandwich.jpg" alt="Cloudcroft Sandwich Shop">
+                        </div>
+                        <div class="restaurant-content">
+                            <h4><a href="https://cloudcroftsandwich.shop" target="_blank" rel="noopener">Cloudcroft Sandwich Shop</a></h4>
+                            <p><em>505 Burro Ave. | (575) 551-0065</em></p>
+                            <p>Traditional deli in Burro Street Exchange. Any sandwich as a salad, plus monster cookies. 11:00 a.m.-4:00 p.m., closed Wednesdays.</p>
+                        </div>
+                    </div>
 
-					/* The typewriter cursor effect */
-					@keyframes blink-caret {
-					  from,
-					  to {
-						border-color: transparent;
-					  }
-					  50% {
-						border-color: orange;
-					  }
-					}
+                    <div class="dining-listing">
+                        <div class="restaurant-image-block">
+                            <img src="art/restaurant-western.jpg" alt="Western Bar and Cafe">
+                        </div>
+                        <div class="restaurant-content">
+                            <h4>Western Bar and Cafe</h4>
+                            <p>Mountain atmosphere, hearty meals, full bar. Local gathering spot.</p>
+                        </div>
+                    </div>
+                </div>
 
-	</style> </head> <body> 
-        <div class="content-container typewriter">
+                <!-- Coffee & Bakeries -->
+                <div class="dining-directory">
+                    <h3>Coffee & Bakeries</h3>
 
-	  <div>Cloudcroft<span style="color:orange!important">Guide.com</span>
-  
-		</div> 
-    
-    </div>
+                    <div class="dining-listing">
+                        <div class="restaurant-image-block">
+                            <img src="art/restaurant-blackbear.jpg" alt="Black Bear Coffee Shop">
+                        </div>
+                        <div class="restaurant-content">
+                            <h4><a href="https://mybbcoffee.com" target="_blank" rel="noopener">Black Bear Coffee Shop</a></h4>
+                            <p><em>200 Burro Ave. | (575) 682-1239</em></p>
+                            <p>Locally-roasted beans. Upstairs conversation nooks, downstairs gallery. Wed-Sat 8:00 a.m.-4:00 p.m., Sun 8:00-3:00 p.m.</p>
+                        </div>
+                    </div>
 
+                    <div class="dining-listing">
+                        <div class="restaurant-image-block">
+                            <img src="art/restaurant-burrobakery.jpg" alt="Burro Street Bakery">
+                        </div>
+                        <div class="restaurant-content">
+                            <h4>Burro Street Bakery</h4>
+                            <p><em>505 Burro Ave. | (575) 682-2777</em></p>
+                            <p>Pies, danishes, breakfast burritos, coffee. Centrally-located. 7:00 a.m.-5:00 p.m. daily.</p>
+                        </div>
+                    </div>
 
+                    <div class="dining-listing">
+                        <div class="restaurant-image-block">
+                            <img src="art/restaurant-eightthecake.jpg" alt="Eight the Cake Bakery">
+                        </div>
+                        <div class="restaurant-content">
+                            <h4><a href="https://eightthecakellc.com" target="_blank" rel="noopener">Eight the Cake Bakery</a></h4>
+                            <p><em>506 Burro Ave. | (575) 682-3088</em></p>
+                            <p>Custom cakes, cupcakes, cinnamon rolls, local art. Thu-Mon 10:00 a.m.-5:00 p.m.</p>
+                        </div>
+                    </div>
 
-		 <!-- scripts -->
-		 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-		 <script src="custom.js"></script>
-	</body>
+                    <div class="dining-listing">
+                        <div class="restaurant-image-block">
+                            <img src="art/restaurant-cloud9000.jpg" alt="Cloud 9000 Coffee">
+                        </div>
+                        <div class="restaurant-content">
+                            <h4>Cloud 9000 Coffee</h4>
+                            <p><em>96 James Canyon Hwy</em></p>
+                            <p>Quick breakfast, smoothies, handhelds. Outdoor seating. 7:00 a.m.-2:00 p.m. Tue-Fri, 8:00-4:00 Sat-Sun.</p>
+                        </div>
+                    </div>
+
+                    <div class="dining-listing">
+                        <div class="restaurant-image-block">
+                            <img src="art/restaurant-instantkarma.jpg" alt="Higher Grounds & Instant Karma Chai Bar">
+                        </div>
+                        <div class="restaurant-content">
+                            <h4><a href="https://getinstantkarma.com" target="_blank" rel="noopener">Higher Grounds & Instant Karma Chai Bar</a></h4>
+                            <p><em>302 Burro Ave. | (575) 682-2651</em></p>
+                            <p>Ayurvedic beverages, yogi-friendly atmosphere. 11:00 a.m.-5:00 p.m. daily.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Local Directory Section (abbreviated for space) -->
+    <section id="local-directory" class="section section-alt">
+        <div class="section-hero">
+            <img src="art/hero-local-directory.jpg" alt="Local businesses and shops" class="section-hero-image">
+            <div class="section-hero-overlay">
+                <h2 class="section-hero-title">Local Directory</h2>
+            </div>
+        </div>
+        <div class="container">
+            <p class="section-intro">Support local businesses and discover mountain charm</p>
+            <div class="directory-category">
+                <h3>Shopping & Gifts</h3>
+                <div class="directory-listing">
+                    <h4><a href="https://highaltitudecloudcroft.com" target="_blank" rel="noopener">High Altitude</a></h4>
+                    <p><em>506 Burro Ave.</em></p>
+                    <p>Cloudcroft apparel and mountain lifestyle goods. Open daily.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section section-contact">
+        <div class="container">
+            <h2 class="section-title">Plan Your Visit</h2>
+            <p class="section-intro">Get in touch to learn more about Cloudcroft</p>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Visit Us</h3>
+                    <div class="contact-detail">
+                        <strong>Location</strong>
+                        <p>Cloudcroft, New Mexico 88317</p>
+                    </div>
+                    <div class="contact-detail">
+                        <strong>Elevation</strong>
+                        <p>8,676 - 9,200 feet</p>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Send Inquiry</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="file-upload">Attach File (Optional)</label>
+                            <div class="file-upload-wrapper">
+                                <input type="file" id="file-upload" name="file-upload" accept="image/*,.pdf,.doc,.docx" class="file-upload-input">
+                                <label for="file-upload" class="file-upload-label">
+                                    <span class="file-upload-icon">📎</span>
+                                    <span class="file-upload-text">Choose a file or drag here</span>
+                                </label>
+                                <div class="file-upload-info">
+                                    <span class="file-name">No file chosen</span>
+                                    <span class="file-size"></span>
+                                </div>
+                                <button type="button" class="file-remove-btn" style="display: none;">Remove</button>
+                            </div>
+                            <small class="form-hint">Accepted formats: Images, PDF, DOC (Max 5MB)</small>
+                        </div>
+                        <button type="submit" class="form-submit">Send Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Cloudcroft<span class="accent">Guide</span></h4>
+                    <p>Your guide to the Sacramento Mountains of southeastern New Mexico.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#things-to-do">Things to Do</a></li>
+                        <li><a href="#stay">Where to Stay</a></li>
+                        <li><a href="#dining">Dining</a></li>
+                        <li><a href="#events">Events</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Cloudcroft Guide. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top">↑</button>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
 </html>
